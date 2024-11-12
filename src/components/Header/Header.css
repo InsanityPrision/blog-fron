@@ -2,3 +2,8 @@
   padding: 20px;
   background-color: #95e6ef;
 }
+
+.main-header__container {
+  margin: 0 auto;
+  max-width: 800px;
+}
