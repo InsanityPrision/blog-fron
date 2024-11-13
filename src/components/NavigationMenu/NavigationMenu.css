@@ -8,7 +8,8 @@
   width: 80px;
   aspect-ratio: 1;
 }
-.links__link {
+
+.navigation-menu__link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +17,7 @@
   height: 100%;
 }
 
-.links__link--active {
+.navigation-menu__link--active {
   background-color: #006cf0;
   border-radius: 4px;
   color: #fff;

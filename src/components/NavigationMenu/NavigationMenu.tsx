@@ -10,8 +10,8 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ title }) => {
       <li className="navigation-menu__links">
         <a
           href="index.html"
-          className={`links__link ${
-            title === "Blog" ? "links__link--active" : ""
+          className={`navigation-menu__link ${
+            title === "Blog" ? "navigation-menu__link--active" : ""
           }`}
         >
           Blog
@@ -20,8 +20,8 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ title }) => {
       <li className="navigation-menu__links">
         <a
           href=""
-          className={`links__link ${
-            title === "Add post" ? "links__link--active" : ""
+          className={`navigation-menu__link ${
+            title === "Add post" ? "navigation-menu__link--active" : ""
           }`}
         >
           Add post
