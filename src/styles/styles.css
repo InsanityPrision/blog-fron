@@ -1,3 +1,7 @@
+:root {
+  --max-width-containers: 800px;
+}
+
 *,
 ::after,
 ::before {

@@ -1,31 +1,18 @@
+import { NavLink } from "react-router-dom";
 import "./NavigationMenu.css";
 
-interface NavigationMenuProps {
-  title: string;
-}
-
-const NavigationMenu: React.FC<NavigationMenuProps> = ({ title }) => {
+const NavigationMenu: React.FC = () => {
   return (
     <ul className="navigation-menu">
       <li className="navigation-menu__links">
-        <a
-          href="index.html"
-          className={`navigation-menu__link ${
-            title === "Blog" ? "navigation-menu__link--active" : ""
-          }`}
-        >
+        <NavLink to="/blog" className="navigation-menu__link">
           Blog
-        </a>
+        </NavLink>
       </li>
       <li className="navigation-menu__links">
-        <a
-          href="/add-post"
-          className={`navigation-menu__link ${
-            title === "Add post" ? "navigation-menu__link--active" : ""
-          }`}
-        >
+        <NavLink to="/add-post" className="navigation-menu__link">
           Add post
-        </a>
+        </NavLink>
       </li>
     </ul>
   );

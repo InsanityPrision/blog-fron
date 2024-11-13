@@ -1,14 +1,17 @@
 import { render, screen } from "@testing-library/react";
 import Header from "./Header";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Given the Header component", () => {
-  const pageTitle = "Blog";
-
   describe("When it receivres 'Blog' and rendered", () => {
     test("Then it should show 'Blog' in a heading", () => {
       const headingTitle = /blog/i;
 
-      render(<Header title={pageTitle} />);
+      render(
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>,
+      );
 
       const headerTitle = screen.getByRole("heading", {
         name: headingTitle,
@@ -23,7 +26,11 @@ describe("Given the Header component", () => {
       const blogLinkText = /blog/i;
       const addPostLinkText = /add post/i;
 
-      render(<Header title={pageTitle} />);
+      render(
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>,
+      );
 
       const blogLink = screen.getByRole("link", {
         name: blogLinkText,
