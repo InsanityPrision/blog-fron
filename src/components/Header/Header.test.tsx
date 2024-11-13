@@ -3,15 +3,13 @@ import Header from "./Header";
 import { MemoryRouter } from "react-router-dom";
 
 describe("Given the Header component", () => {
-  const pageTitle = "Blog";
-
   describe("When it receivres 'Blog' and rendered", () => {
     test("Then it should show 'Blog' in a heading", () => {
       const headingTitle = /blog/i;
 
       render(
         <MemoryRouter>
-          <Header title={pageTitle} />
+          <Header />
         </MemoryRouter>,
       );
 
@@ -30,7 +28,7 @@ describe("Given the Header component", () => {
 
       render(
         <MemoryRouter>
-          <Header title={pageTitle} />
+          <Header />
         </MemoryRouter>,
       );
 
