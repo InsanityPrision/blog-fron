@@ -5,7 +5,7 @@ import "./App.css";
 const App: React.FC = () => {
   return (
     <>
-      <Header title="Blog" />
+      <Header />
       <div className="container">
         <Outlet />
       </div>
