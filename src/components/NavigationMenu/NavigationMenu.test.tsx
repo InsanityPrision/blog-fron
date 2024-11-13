@@ -5,8 +5,8 @@ describe("Given the NavigationMenu component", () => {
   describe("When rendered", () => {
     test("Then it should show two links with 'Blog' and 'Add post'", () => {
       const pageTitle = "Blog";
-      const blogLinkText = "Blog";
-      const addPostLinkText = "Add post";
+      const blogLinkText = /blog/i;
+      const addPostLinkText = /add post/i;
 
       render(<NavigationMenu title={pageTitle} />);
 
