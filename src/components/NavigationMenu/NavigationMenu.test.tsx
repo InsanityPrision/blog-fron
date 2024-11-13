@@ -1,14 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import NavigationMenu from "./NavigationMenu";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Given the NavigationMenu component", () => {
   describe("When rendered", () => {
     test("Then it should show two links with 'Blog' and 'Add post'", () => {
-      const pageTitle = "Blog";
       const blogLinkText = /blog/i;
       const addPostLinkText = /add post/i;
 
-      render(<NavigationMenu title={pageTitle} />);
+      render(
+        <MemoryRouter>
+          <NavigationMenu />
+        </MemoryRouter>,
+      );
 
       const blogLink = screen.getByRole("link", {
         name: blogLinkText,

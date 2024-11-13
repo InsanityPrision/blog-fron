@@ -17,7 +17,7 @@
   height: 100%;
 }
 
-.navigation-menu__link--active {
+.active {
   background-color: #006cf0;
   border-radius: 4px;
   color: #fff;
