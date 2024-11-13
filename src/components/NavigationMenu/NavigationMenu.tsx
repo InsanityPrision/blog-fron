@@ -19,7 +19,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ title }) => {
       </li>
       <li className="navigation-menu__links">
         <a
-          href=""
+          href="/add-post"
           className={`navigation-menu__link ${
             title === "Add post" ? "navigation-menu__link--active" : ""
           }`}
