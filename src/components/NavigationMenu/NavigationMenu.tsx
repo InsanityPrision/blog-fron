@@ -3,7 +3,7 @@ import "./NavigationMenu.css";
 
 const NavigationMenu: React.FC = () => {
   return (
-    <ul className="navigation-menu">
+    <nav className="navigation-menu">
       <li className="navigation-menu__links">
         <NavLink to="/blog" className="navigation-menu__link">
           Blog
@@ -14,7 +14,7 @@ const NavigationMenu: React.FC = () => {
           Add post
         </NavLink>
       </li>
-    </ul>
+    </nav>
   );
 };
 
