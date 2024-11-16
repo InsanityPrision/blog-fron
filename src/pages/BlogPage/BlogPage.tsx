@@ -26,7 +26,7 @@ const BlogPage: React.FC = () => {
       <PostsList posts={postsApi} />
       {isLoading && (
         <div className="loader-container">
-          <span className="loader"></span>
+          <span className="loader-container__loader"></span>
         </div>
       )}
     </main>

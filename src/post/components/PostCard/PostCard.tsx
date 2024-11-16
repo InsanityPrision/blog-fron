@@ -6,10 +6,12 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
+  const { title } = post;
+
   return (
     <li>
       <article className="posts__post">
-        <h3 className="posts__title">{post.title}</h3>
+        <h3 className="posts__title">{title}</h3>
       </article>
     </li>
   );
