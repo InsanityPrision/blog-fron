@@ -1,5 +1,44 @@
-.posts__post {
+.posts__post-container {
+  display: flex;
+  flex-direction: column;
   border: 2px solid #000;
   border-radius: 4px;
+
+  @media (width > 700px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.posts__post {
   padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.posts__content {
+  overflow: hidden;
+  max-height: 210px;
+  white-space: wrap;
+  text-overflow: ellipsis;
+}
+
+.posts__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts__images {
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
+  border-top: 2px solid #000;
+
+  @media (width > 700px) {
+    flex: 1;
+    border-top: 0;
+    border-left: 2px solid #000;
+  }
 }
