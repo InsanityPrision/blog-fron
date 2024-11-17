@@ -1,7 +1,6 @@
 import { Post } from "../post/types";
 
-export const url =
-  import.meta.env.VITE_API_URL ?? "https://blog-back-8yyw.onrender.com";
+export const url = import.meta.env.VITE_API_URL;
 
 export const getPosts = async (): Promise<{ posts: Post[] }> => {
   const respose = await fetch(`${url}/posts`);
