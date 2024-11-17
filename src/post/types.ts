@@ -1,8 +1,8 @@
 export interface Post {
-  id: number;
+  id: string;
   title: string;
   imageUrl: string;
   content: string;
   author: string;
-  date: Date;
+  date: string;
 }
