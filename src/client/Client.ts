@@ -2,7 +2,7 @@ import { Post } from "../post/types";
 import { ClientStructure } from "./types";
 
 class Client implements ClientStructure {
-  constructor(private apiUrl: string) {}
+  private apiUrl = import.meta.env.VITE_API_URL;
 
   getPosts = async (): Promise<{ posts: Post[] }> => {
     const response = await fetch(`${this.apiUrl}/posts`);
@@ -13,4 +13,6 @@ class Client implements ClientStructure {
   };
 }
 
-export default Client;
+const postClient = new Client();
+
+export default postClient;
