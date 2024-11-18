@@ -1,5 +1,6 @@
 import { http, HttpResponse } from "msw";
-import { url } from "../client/getPosts";
+
+const url = import.meta.env.VITE_API_URL;
 
 export const handlers = [
   http.get(`${url}/posts`, () => {
