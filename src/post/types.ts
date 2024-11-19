@@ -7,5 +7,5 @@ export interface PostData {
 
 export interface Post extends PostData {
   id: string;
-  date: string;
+  date: Date;
 }
