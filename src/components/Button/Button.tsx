@@ -4,7 +4,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ type, text }) => {
-  return <button type={type} className="button" children={text} />;
+  return <button type={type} className="button" children={text} disabled />;
 };
 
 export default Button;
