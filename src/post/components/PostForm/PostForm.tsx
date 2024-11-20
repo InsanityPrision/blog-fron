@@ -11,7 +11,12 @@ const PostForm: React.FC = () => {
       <input type="url" className="form__input" id="imageUrl" required />
       <label htmlFor="author">Author:</label>
       <input type="text" className="form__input" id="author" required />
-      <Button type="submit" text="Create post" />
+      <Button
+        type="submit"
+        className="button"
+        children={"Create post"}
+        disabled={true}
+      />
     </form>
   );
 };
