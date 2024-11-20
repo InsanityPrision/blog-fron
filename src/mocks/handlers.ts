@@ -2,6 +2,10 @@ import { http, HttpResponse } from "msw";
 
 const url = import.meta.env.VITE_API_URL;
 
+if (!url) {
+  throw new Error("Env variable needed");
+}
+
 export const handlers = [
   http.get(`${url}/posts`, () => {
     return HttpResponse.json([
