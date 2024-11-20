@@ -1,7 +1,7 @@
 import PostForm from "../../post/components/PostForm/PostForm";
 import "./AddPostPage.css";
 
-const AddPost: React.FC = () => {
+const AddPostPage: React.FC = () => {
   return (
     <main className="formPage--container">
       <h2>Add a new post:</h2>
@@ -10,4 +10,4 @@ const AddPost: React.FC = () => {
   );
 };
 
-export default AddPost;
+export default AddPostPage;
