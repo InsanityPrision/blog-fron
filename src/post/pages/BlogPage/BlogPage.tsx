@@ -9,7 +9,7 @@ const BlogPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const loadPosts = useCallback(async () => {
-    const { posts } = await postClient.getPosts();
+    const posts = await postClient.getPosts();
 
     setPostsApi(posts);
   }, []);

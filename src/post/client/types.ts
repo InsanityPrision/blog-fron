@@ -1,6 +1,6 @@
 import { Post, PostData } from "../types";
 
 export interface PostClientStructure {
-  getPosts(): Promise<{ posts: Post[] }>;
+  getPosts(): Promise<Post[]>;
   createPost(postData: PostData): void;
 }
