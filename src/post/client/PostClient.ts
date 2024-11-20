@@ -1,7 +1,7 @@
-import { Post, PostData } from "../post/types";
-import { ClientStructure } from "./types";
+import { Post, PostData } from "../types";
+import { PostClientStructure } from "./types";
 
-class Client implements ClientStructure {
+class PostClient implements PostClientStructure {
   private apiUrl = import.meta.env.VITE_API_URL;
 
   async getPosts(): Promise<{ posts: Post[] }> {
@@ -23,6 +23,6 @@ class Client implements ClientStructure {
   }
 }
 
-const postClient = new Client();
+const postClient = new PostClient();
 
 export default postClient;
