@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import PostsList from "../../post/components/PostsList/PostsList";
-import { Post } from "../../post/types";
+import PostsList from "../../components/PostsList/PostsList";
+import { Post } from "../../types";
 import "./BlogPage.css";
-import postClient from "../../post/client/PostClient";
+import postClient from "../../client/PostClient";
 
 const BlogPage: React.FC = () => {
   const [postsApi, setPostsApi] = useState<Post[]>([]);

@@ -1,4 +1,4 @@
-import PostForm from "../../post/components/PostForm/PostForm";
+import PostForm from "../../components/PostForm/PostForm";
 import "./AddPostPage.css";
 
 const AddPostPage: React.FC = () => {

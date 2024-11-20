@@ -4,10 +4,10 @@ import {
   Navigate,
   Route,
 } from "react-router-dom";
-import BlogPage from "../pages/BlogPage/BlogPage";
 import App from "../components/App/App";
-import AddPostPage from "../pages/AddPostPage/AddPostPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import AddPostPage from "../post/pages/AddPostPage/AddPostPage";
+import BlogPage from "../post/pages/BlogPage/BlogPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
