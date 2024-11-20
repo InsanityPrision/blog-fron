@@ -6,7 +6,7 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
-  const { title, author, content, date, imageUrl } = post;
+  const { title, author, content, date, imageUrl, alternativeText } = post;
 
   const newDate = new Date(date).toLocaleDateString();
 
@@ -22,7 +22,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         <img
           className="posts__images"
           src={`images${imageUrl}`}
-          alt={title}
+          alt={alternativeText}
           width={374}
           height={342}
         />

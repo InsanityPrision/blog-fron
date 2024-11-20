@@ -3,6 +3,7 @@ export interface PostData {
   imageUrl: string;
   content: string;
   author: string;
+  alternativeText: string;
 }
 
 export interface Post extends PostData {
