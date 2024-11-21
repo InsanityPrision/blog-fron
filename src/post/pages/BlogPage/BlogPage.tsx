@@ -5,7 +5,7 @@ import "./BlogPage.css";
 import postClient from "../../client/PostClient";
 
 const BlogPage: React.FC = () => {
-  const [postsApi, setPostsApi] = useState<Post[]>([]);
+  const [posts, setPostsApi] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const loadPosts = useCallback(async () => {
@@ -15,18 +15,20 @@ const BlogPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setIsLoading(true);
-    loadPosts();
-    setIsLoading(false);
+    (async () => {
+      setIsLoading(true);
+      await loadPosts();
+      setIsLoading(false);
+    })();
   }, [loadPosts]);
 
   return (
     <main className="main-content">
       <h2>Posts:</h2>
-      <PostsList posts={postsApi} />
+      <PostsList posts={posts} />
       {isLoading && (
-        <div className="loader-container">
-          <span className="loader-container__loader"></span>
+        <div className="loader-container" aria-label="Loading" role="alert">
+          <span className="loader-container__loader" />
         </div>
       )}
     </main>
