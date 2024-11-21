@@ -12,12 +12,12 @@ export default defineConfig({
     coverage: {
       include: ["src/**/**.ts", "src/**/**.tsx"],
       exclude: [
-        "src/index.ts",
+        "src/main.tsx",
+        "src/vite-env.d.ts",
         "src/handlers",
         "src/mocks",
-        "src/client",
+        "src/post/client/types.ts",
         "src/post/types.ts",
-        "src/router",
       ],
     },
   },
