@@ -7,7 +7,7 @@ class PostClient implements PostClientStructure {
   async getPosts(): Promise<Post[]> {
     const response = await fetch(`${this.apiUrl}/posts`);
 
-    const posts = (await response.json()) as Post[];
+    const { posts } = (await response.json()) as { posts: Post[] };
 
     return posts;
   }

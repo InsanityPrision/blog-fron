@@ -3,7 +3,7 @@ import "./AddPostPage.css";
 
 const AddPostPage: React.FC = () => {
   return (
-    <main className="formPage--container">
+    <main className="formpage--container">
       <h2>Add a new post:</h2>
       <PostForm />
     </main>
