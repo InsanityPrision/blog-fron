@@ -12,14 +12,18 @@ class PostClient implements PostClientStructure {
     return posts;
   }
 
-  createPost(postData: PostData): void {
-    fetch(`${this.apiUrl}/posts`, {
+  async createPost(postData: PostData): Promise<Post> {
+    const response = await fetch(`${this.apiUrl}/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(postData),
     });
+
+    const newPost = (await response.json()) as Post;
+
+    return newPost;
   }
 }
 

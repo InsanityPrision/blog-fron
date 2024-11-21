@@ -32,4 +32,15 @@ export const handlers = [
       ],
     });
   }),
+  http.post(`${url}/posts`, () => {
+    return HttpResponse.json<Post>({
+      title: "Los perros molan",
+      imageUrl: "",
+      alternativeText: "",
+      content: "Los perros molan mucho porque te traen la pelota",
+      author: "perroLover",
+      id: "c751f618-192c-49n8-a0cb-a2acnbfd72f1",
+      date: new Date(),
+    });
+  }),
 ];
