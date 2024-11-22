@@ -1,20 +1,22 @@
 import { useCallback, useState } from "react";
-import { Post } from "../types";
 import postClient from "../client/PostClient";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { loadPosts as loadPostActionCreator } from "../slice/postsSlice";
 
 const usePosts = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const posts = useAppSelector((state) => state.postsState.posts);
+  const dispatch = useAppDispatch();
 
   const loadPosts = useCallback(async () => {
     setIsLoading(true);
-
     const posts = await postClient.getPosts();
 
-    setPosts(posts);
+    dispatch(loadPostActionCreator(posts));
 
     setIsLoading(false);
-  }, []);
+  }, [dispatch]);
 
   return {
     posts,
