@@ -1,12 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import BlogPage from "./BlogPage";
+import { Provider } from "react-redux";
+import { store } from "../../store";
 
 describe("Given the BlogPage component", () => {
   describe("When rendered", () => {
     test("Then it should show 'Blog' in a heading", () => {
       const blogPageTitleText = /posts/i;
 
-      render(<BlogPage />);
+      render(
+        <Provider store={store}>
+          <BlogPage />
+        </Provider>,
+      );
 
       const blogPageTitle = screen.getByRole("heading", {
         name: blogPageTitleText,
@@ -18,7 +24,11 @@ describe("Given the BlogPage component", () => {
     test("Then it should show a loading", () => {
       const loadingText = /loading/i;
 
-      render(<BlogPage />);
+      render(
+        <Provider store={store}>
+          <BlogPage />
+        </Provider>,
+      );
 
       const loading = screen.getByRole("alert", {
         name: loadingText,
@@ -33,7 +43,11 @@ describe("Given the BlogPage component", () => {
       const post1TitleText = /i like potatoes/i;
       const post2TitleText = /i hate potatoes with katchup/i;
 
-      render(<BlogPage />);
+      render(
+        <Provider store={store}>
+          <BlogPage />
+        </Provider>,
+      );
 
       const post1Title = await screen.findByRole("heading", {
         name: post1TitleText,
@@ -48,7 +62,11 @@ describe("Given the BlogPage component", () => {
     });
 
     test("Then it should show two images with alternatives texts 'Fried potatoes' and 'Potatoes with katchup'", async () => {
-      render(<BlogPage />);
+      render(
+        <Provider store={store}>
+          <BlogPage />
+        </Provider>,
+      );
 
       const post1Image = await screen.findByAltText(/fried potatoes/i);
       const post2Image = await screen.findByAltText(/potatoes with katchup/i);
