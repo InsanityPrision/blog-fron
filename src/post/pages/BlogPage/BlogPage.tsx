@@ -1,25 +1,13 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import PostsList from "../../components/PostsList/PostsList";
-import { Post } from "../../types";
+import usePosts from "../../hook/usePosts";
 import "./BlogPage.css";
-import postClient from "../../client/PostClient";
 
 const BlogPage: React.FC = () => {
-  const [posts, setPostsApi] = useState<Post[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const loadPosts = useCallback(async () => {
-    const posts = await postClient.getPosts();
-
-    setPostsApi(posts);
-  }, []);
+  const { posts, loadPosts, isLoading } = usePosts();
 
   useEffect(() => {
-    (async () => {
-      setIsLoading(true);
-      await loadPosts();
-      setIsLoading(false);
-    })();
+    loadPosts();
   }, [loadPosts]);
 
   return (
