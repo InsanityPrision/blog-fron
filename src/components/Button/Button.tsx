@@ -1,17 +1,22 @@
-import { ButtonHTMLAttributes } from "react";
+interface ButtonProps {
+  type: "submit" | "reset" | "button";
+  className: string;
+  disabled: boolean;
+  children: string;
+}
 
-const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
-  type,
+const Button: React.FC<ButtonProps> = ({
   className,
-  children,
   disabled,
+  type,
+  children,
 }) => {
   return (
     <button
       type={type}
       className={className}
-      children={children}
       disabled={disabled}
+      children={children}
     />
   );
 };
