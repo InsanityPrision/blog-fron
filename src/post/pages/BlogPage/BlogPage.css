@@ -4,6 +4,19 @@
   gap: 14px;
 }
 
+.post-created {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background-color: #fffc;
+}
+
 .loader-container {
   height: 100%;
   width: 100%;
