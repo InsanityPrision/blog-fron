@@ -1,21 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../../components/Button/Button";
-import usePosts from "../../hook/usePosts";
+import { PostData } from "../../types";
 
 const PostForm: React.FC = () => {
-  const {
-    isDisabled,
-    isFormValid,
-    updateNewPostData,
-    title,
-    content,
-    author,
-    imageUrl,
-  } = usePosts();
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [{ title, content, author, imageUrl }, setNewPostData] =
+    useState<PostData>({
+      title: "",
+      content: "",
+      author: "",
+      imageUrl: "",
+      alternativeText: "",
+    });
 
   useEffect(() => {
-    isFormValid();
-  }, [isFormValid]);
+    const isValid =
+      title.length > 0 &&
+      content.length > 0 &&
+      author.length > 0 &&
+      imageUrl.length > 0;
+
+    setIsDisabled(!isValid);
+  }, [author.length, content.length, imageUrl.length, title.length]);
+
+  const updateNewPostData = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewPostData((postData) => ({
+      ...postData,
+      [event.target.id]: event.target.value,
+    }));
+  };
 
   return (
     <form className="form">
