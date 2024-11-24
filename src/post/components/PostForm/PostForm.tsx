@@ -4,24 +4,33 @@ import { PostData } from "../../types";
 
 const PostForm: React.FC = () => {
   const [isDisabled, setIsDisabled] = useState(true);
-  const [{ title, content, author, imageUrl }, setNewPostData] =
-    useState<PostData>({
-      title: "",
-      content: "",
-      author: "",
-      imageUrl: "",
-      alternativeText: "",
-    });
+  const [
+    { title, content, author, imageUrl, alternativeText },
+    setNewPostData,
+  ] = useState<PostData>({
+    title: "",
+    content: "",
+    author: "",
+    imageUrl: "",
+    alternativeText: "",
+  });
 
   useEffect(() => {
     const isValid =
       title.length > 0 &&
       content.length > 0 &&
       author.length > 0 &&
-      imageUrl.length > 0;
+      imageUrl.length > 0 &&
+      alternativeText.length;
 
     setIsDisabled(!isValid);
-  }, [author.length, content.length, imageUrl.length, title.length]);
+  }, [
+    alternativeText.length,
+    author.length,
+    content.length,
+    imageUrl.length,
+    title.length,
+  ]);
 
   const updateNewPostData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPostData((postData) => ({
@@ -56,6 +65,15 @@ const PostForm: React.FC = () => {
         className="form__input"
         id="imageUrl"
         value={imageUrl}
+        onChange={updateNewPostData}
+        required
+      />
+      <label htmlFor="alternativeText">Alternative text:</label>
+      <input
+        type="text"
+        className="form__input"
+        id="alternativeText"
+        value={alternativeText}
         onChange={updateNewPostData}
         required
       />

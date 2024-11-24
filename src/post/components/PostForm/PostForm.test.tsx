@@ -6,7 +6,7 @@ import { store } from "../../store";
 
 describe("Given the PostForm component", () => {
   describe("When it rendered", () => {
-    test("Then it should show 'Title', 'Content', 'Image URL', 'Author' fields", () => {
+    test("Then it should show 'Title', 'Content', 'Image URL', 'Author' and 'Alternative Text' fields", () => {
       render(
         <Provider store={store}>
           <PostForm />
@@ -17,11 +17,13 @@ describe("Given the PostForm component", () => {
       const contentField = screen.getByLabelText(/content/i);
       const imageUrlField = screen.getByLabelText(/image url/i);
       const authorField = screen.getByLabelText(/author/i);
+      const alternativeTextField = screen.getByLabelText(/alternative text/i);
 
       expect(titleField).toBeInTheDocument();
       expect(contentField).toBeInTheDocument();
       expect(imageUrlField).toBeInTheDocument();
       expect(authorField).toBeInTheDocument();
+      expect(alternativeTextField).toBeInTheDocument();
     });
 
     test("Then it should show a disabled 'Create post' button", () => {
@@ -74,11 +76,13 @@ describe("Given the PostForm component", () => {
       const contentField = screen.getByLabelText(/content/i);
       const imageUrlField = screen.getByLabelText(/image url/i);
       const authorField = screen.getByLabelText(/author/i);
+      const alternativeTextField = screen.getByLabelText(/alternative text/i);
 
       await user.type(titleField, "Me gustan las patatas");
       await user.type(contentField, "Me encantan las patatas");
       await user.type(imageUrlField, "patatas.webp");
       await user.type(authorField, "Luis Luisez");
+      await user.type(alternativeTextField, "Unas patatas fritas");
 
       const createPostButton = screen.getByRole("button", {
         name: /create post/i,
