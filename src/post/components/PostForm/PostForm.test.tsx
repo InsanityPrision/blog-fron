@@ -3,13 +3,16 @@ import { render, screen } from "@testing-library/react";
 import PostForm from "./PostForm";
 import { Provider } from "react-redux";
 import { store } from "../../store";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Given the PostForm component", () => {
   describe("When it rendered", () => {
     test("Then it should show 'Title', 'Content', 'Image URL', 'Author' and 'Alternative Text' fields", () => {
       render(
         <Provider store={store}>
-          <PostForm />
+          <BrowserRouter>
+            <PostForm />
+          </BrowserRouter>
         </Provider>,
       );
 
@@ -31,7 +34,9 @@ describe("Given the PostForm component", () => {
 
       render(
         <Provider store={store}>
-          <PostForm />
+          <BrowserRouter>
+            <PostForm />
+          </BrowserRouter>
         </Provider>,
       );
 
@@ -50,7 +55,9 @@ describe("Given the PostForm component", () => {
 
       render(
         <Provider store={store}>
-          <PostForm />
+          <BrowserRouter>
+            <PostForm />
+          </BrowserRouter>
         </Provider>,
       );
 
@@ -68,7 +75,9 @@ describe("Given the PostForm component", () => {
 
       render(
         <Provider store={store}>
-          <PostForm />
+          <BrowserRouter>
+            <PostForm />
+          </BrowserRouter>
         </Provider>,
       );
 
