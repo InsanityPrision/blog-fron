@@ -25,6 +25,16 @@ class PostClient implements PostClientStructure {
 
     return newPost;
   }
+
+  async deletePost(id: string): Promise<void> {
+    const response = await fetch(`${this.apiUrl}/posts/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.status === 404) {
+      throw new Error("Incorrect ID");
+    }
+  }
 }
 
 const postClient = new PostClient();
