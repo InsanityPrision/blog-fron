@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "../../../components/Button/Button";
 import { PostData } from "../../types";
+import postClient from "../../client/PostClient";
 
 const PostForm: React.FC = () => {
   const [isDisabled, setIsDisabled] = useState(true);
@@ -39,8 +40,20 @@ const PostForm: React.FC = () => {
     }));
   };
 
+  const sendData = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    postClient.createPost({
+      title,
+      content,
+      imageUrl,
+      alternativeText,
+      author,
+    });
+  };
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={sendData}>
       <label htmlFor="title">Title:</label>
       <input
         className="form__input"
