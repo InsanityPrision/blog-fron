@@ -59,4 +59,32 @@ describe("Given the PostForm component", () => {
       expect(titleField).toHaveValue(titleFieldTextByUser);
     });
   });
+
+  describe("When the user fills all required fields", () => {
+    test("Then it should show an enabled 'Create post' button", async () => {
+      const user = userEvent.setup();
+
+      render(
+        <Provider store={store}>
+          <PostForm />
+        </Provider>,
+      );
+
+      const titleField = screen.getByLabelText(/title/i);
+      const contentField = screen.getByLabelText(/content/i);
+      const imageUrlField = screen.getByLabelText(/image url/i);
+      const authorField = screen.getByLabelText(/author/i);
+
+      await user.type(titleField, "Me gustan las patatas");
+      await user.type(contentField, "Me encantan las patatas");
+      await user.type(imageUrlField, "patatas.webp");
+      await user.type(authorField, "Luis Luisez");
+
+      const createPostButton = screen.getByRole("button", {
+        name: /create post/i,
+      });
+
+      expect(createPostButton).toBeEnabled();
+    });
+  });
 });
