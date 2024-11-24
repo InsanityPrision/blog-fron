@@ -1,4 +1,4 @@
-.posts__post-container {
+.post__post-container {
   display: flex;
   flex-direction: column;
   border: 2px solid #000;
@@ -10,7 +10,7 @@
   }
 }
 
-.posts__post {
+.post__post {
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -18,19 +18,19 @@
   flex: 1;
 }
 
-.posts__content {
+.post__content {
   overflow: hidden;
   max-height: 210px;
   white-space: wrap;
   text-overflow: ellipsis;
 }
 
-.posts__info {
+.post__info {
   display: flex;
   justify-content: space-between;
 }
 
-.posts__images {
+.post__images {
   object-fit: cover;
   overflow: hidden;
   width: 100%;
@@ -41,4 +41,14 @@
     border-top: 0;
     border-left: 2px solid #000;
   }
+}
+
+.post__information {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.button--delete {
+  background-color: #fc0000d7;
 }
