@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import Button from "../../../components/Button/Button";
 import { PostData } from "../../types";
 import postClient from "../../client/PostClient";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../store/hooks";
+import { setCreated } from "../../slice/uiSlice";
 
 const PostForm: React.FC = () => {
   const [isDisabled, setIsDisabled] = useState(true);
@@ -15,6 +18,8 @@ const PostForm: React.FC = () => {
     imageUrl: "",
     alternativeText: "",
   });
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const isValid =
@@ -40,6 +45,8 @@ const PostForm: React.FC = () => {
     }));
   };
 
+  const navigate = useNavigate();
+
   const sendData = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -50,6 +57,10 @@ const PostForm: React.FC = () => {
       alternativeText,
       author,
     });
+
+    dispatch(setCreated(true));
+
+    navigate("/blog");
   };
 
   return (
