@@ -35,5 +35,15 @@ describe("Given the PostCard component", () => {
 
       expect(postImage).toBeInTheDocument();
     });
+
+    test("Then it should show a button with the text 'Delete post'", () => {
+      render(<PostCard post={post} />);
+
+      const postButton = screen.getByRole("button", {
+        name: /delete post/i,
+      });
+
+      expect(postButton).toBeInTheDocument();
+    });
   });
 });
