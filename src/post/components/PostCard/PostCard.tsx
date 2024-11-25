@@ -13,7 +13,6 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const newDate = new Date(date).toLocaleDateString();
 
   const deltePost = () => {
-    console.log(post.id);
     postClient.deletePost(post.id);
   };
 
@@ -22,7 +21,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       <article className="post__post-container">
         <div className="post__post">
           <h3 className="post__title">{title}</h3>
-          <span className="post__content">{content}</span>
+          <p className="post__content">{content}</p>
           <div className="post__information">
             <span>By: {author}</span>
             <span>In: {newDate}</span>
